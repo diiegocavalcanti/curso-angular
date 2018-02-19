@@ -1,37 +1,27 @@
+import { environment } from './../../environments/environment';
 import { Usuario } from './../usuario';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable()
 export class UsuarioService {
 
-  usuarios: Array<Usuario> = [
-    { nome: "Ricardo", email: "ricardo@gmail.com"}
-  ];
 
-  constructor() { }
+  public url = environment.apiUrl;
 
-  public adicionarusuario(obj: Usuario){
-    return this.setLocalStorage(obj);
+  constructor(private http: HttpClient) { }
+
+  public adicionarUsuario(usuario: Usuario): Observable<Usuario> {
+    return this.http.post<Usuario>(this.url + 'users', usuario, httpOptions);
   }
 
-  public listarusuarios(): Observable<Usuario[]>{
-    return this.getLocalStorage();
-  }
-
-  public setLocalStorage(obj: Usuario){
-    this.usuarios = this.getLocalStorage();
-    console.log(this.usuarios);
-    this.usuarios.push(obj)
-    return localStorage.setItem("usuarios", JSON.stringify(obj));
-  }
-
-  public getLocalStorage(){
-    if(localStorage.getItem("usuarios")){
-    return JSON.parse(localStorage.getItem("usuarios"));
-    }else{    
-      return this.usuarios;
-    }
+  public listarusuarios(): Observable<any> {
+    return this.http.get(this.url);
   }
 
 }

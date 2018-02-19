@@ -15,7 +15,7 @@ export class ListaUsuariosComponent implements OnInit {
 
   ngOnInit() {
     this.service.listarusuarios().subscribe(data => {
-      this.usuarios = data;
+      this.usuarios = data.users;
     });
   }
 

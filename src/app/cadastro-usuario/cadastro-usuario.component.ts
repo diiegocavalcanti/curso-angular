@@ -7,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './cadastro-usuario.component.html',
   styleUrls: ['./cadastro-usuario.component.css']
 })
+
 export class CadastroUsuarioComponent implements OnInit {
 
   public usuario: Usuario;
   public status: any;
+  public flag: boolean;
 
   constructor(private service: UsuarioService) { }
 
@@ -18,10 +20,11 @@ export class CadastroUsuarioComponent implements OnInit {
     this.usuario = new Usuario();
   }
 
-  onSubmit(){
-    this.service.adicionarusuario(this.usuario);
-    console.log(localStorage.getItem("usuarios"));
-    
+  onSubmit() {
+    this.service.adicionarUsuario(this.usuario).subscribe( data => {
+      this.usuario = data;
+      this.flag = true;
+    });
   }
 
 }
