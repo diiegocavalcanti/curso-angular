@@ -1,18 +1,31 @@
+import { ListaUsuariosComponent } from './lista-usuarios/lista-usuarios.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
+import { RouterLink } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { UsuarioService } from './providers/usuario.service';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CadastroUsuarioComponent,
+    ListaUsuariosComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule.forRoot(),
+    FormsModule
   ],
-  providers: [],
+  providers: [UsuarioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
