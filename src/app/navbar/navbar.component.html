@@ -1,0 +1,9 @@
+<nav class="teal lighten-2">
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Angular</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li [ngClass]="{'active': is_active == 'novo'}"><a (click)="setActive('novo')" routerLink="/novo" href="#">Novo</a></li>
+            <li [ngClass]="{'active': is_active == 'lista'}"><a (click)="setActive('lista')" routerLink="/home" href="#">Lista</a></li>
+        </ul>
+    </div>
+</nav>

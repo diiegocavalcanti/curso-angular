@@ -12,13 +12,15 @@ import { ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { UsuarioService } from './providers/usuario.service';
 import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CadastroUsuarioComponent,
-    ListaUsuariosComponent
+    ListaUsuariosComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
