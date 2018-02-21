@@ -11,14 +11,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of usuarios; let i = index">
+                    <tr  *ngFor="let item of usuarios; let i = index">
                         <th scope="row">{{i+1}}</th>
                         <td>{{item.name}}</td>
                         <td>{{item.email}}</td>
-                        <td><button class="btn primary"></button></td>
+                        <td><button (click)="selectUsuario(item)" class="btn primary">Detalhes</button></td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+
+<app-detalhe-usuario *ngIf="selectedUsuario" (fecharDetalhe)="unselectUsuario($event)" [usuario]="selectedUsuario"></app-detalhe-usuario>

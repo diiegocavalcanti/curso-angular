@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { UsuarioService } from './providers/usuario.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
+import { DetalheUsuarioComponent } from './detalhe-usuario/detalhe-usuario.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     AppComponent,
     CadastroUsuarioComponent,
     ListaUsuariosComponent,
-    NavbarComponent
+    NavbarComponent,
+    DetalheUsuarioComponent
   ],
   imports: [
     BrowserModule,

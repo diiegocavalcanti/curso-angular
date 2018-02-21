@@ -1,6 +1,6 @@
+import { Usuario } from './../usuario';
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../providers/usuario.service';
-import { Usuario } from '../usuario';
 
 @Component({
   selector: 'app-lista-usuarios',
@@ -10,6 +10,7 @@ import { Usuario } from '../usuario';
 export class ListaUsuariosComponent implements OnInit {
 
   public usuarios: Array<Usuario>;
+  public selectedUsuario: Usuario;
 
   constructor(private service: UsuarioService) { }
 
@@ -18,5 +19,12 @@ export class ListaUsuariosComponent implements OnInit {
       this.usuarios = data.users;
     });
   }
+
+  selectUsuario(usuario){
+    this.selectedUsuario = usuario;
+  }
+
+  unselectUsuario(value){
+    this.selectedUsuario = undefined;  }
 
 }
