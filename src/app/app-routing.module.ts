@@ -6,7 +6,7 @@ import { CadastroUsuarioComponent } from "./cadastro-usuario/cadastro-usuario.co
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full'},
     { path: 'home', component: ListaUsuariosComponent },
-    { path: 'novo', component: CadastroUsuarioComponent }
+    { path: 'novo/:id', component: CadastroUsuarioComponent }
 ];
 
 
@@ -14,4 +14,5 @@ const routes: Routes = [
     imports: [ RouterModule.forRoot(routes)],
     exports: [ RouterModule ]
 })
+
 export class AppRoutingModule {}

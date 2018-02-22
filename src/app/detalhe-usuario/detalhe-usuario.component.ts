@@ -10,6 +10,7 @@ export class DetalheUsuarioComponent implements OnInit {
 
   @Input() usuario: Usuario;
   @Output() fecharDetalhe = new EventEmitter();
+  public cor: string;
 
   constructor() { }
 
@@ -18,6 +19,10 @@ export class DetalheUsuarioComponent implements OnInit {
 
   onClose(){
     this.fecharDetalhe.emit('close');
+  }
+
+  novaCor(event){
+    this.cor = event.cor;
   }
 
 }

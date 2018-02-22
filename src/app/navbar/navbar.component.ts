@@ -1,3 +1,4 @@
+import { RouterLink, ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -12,6 +13,7 @@ export class NavbarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
   public setActive(route){
