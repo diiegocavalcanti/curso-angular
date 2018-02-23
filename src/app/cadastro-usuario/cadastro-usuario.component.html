@@ -3,21 +3,31 @@
         <div class="col-lg-12">
             <h1>Adicionar Novo Registro <button class="btn" (click)="voltar()">Voltar</button></h1>
 
-            <form #formNovo="ngForm" (ngSubmit)="onSubmit(formNovo, campoNome)">
-                {{formNovo}}
-                <div class="form-group">
-                    <label for="">Nome</label>
-                    <input required type="text" class="form-control" #campoNome="ngModel" [(ngModel)]="usuario.nome" name="nome" placeholder="Nome">
+            <form #formUsuario="ngForm" (ngSubmit)="onSubmit()">
+                <div class="input-field col s6">
+                    <input #name="ngModel" required placeholder="Nome" [(ngModel)]="usuario.name" name="name" id="first_name" type="text" class="validate">
+                    <label for="first_name">Nome:</label>
+                </div>
+                <div class="input-field col s6">
+                    <input placeholder="E-mail" [(ngModel)]="usuario.email" name="email" id="first_name" type="text" class="validate">
+                    <label for="first_name">E-mail:</label>
+                </div>
+                <div class="input-field col s6">
+                    <input placeholder="CPF" [(ngModel)]="usuario.cpf" name="cpf" id="first_name" type="text" class="validate">
+                    <label for="first_name">CPF:</label>
+                </div>
+                <div class="input-field col s6">
+                    <input placeholder="RG" id="first_name" [(ngModel)]="usuario.rg" name="rg" type="text" class="validate">
+                    <label for="first_name">RG:</label>
+                </div>
+                <div class="input-field col s6">
+                    <input placeholder="Qtde Filhos" id="first_name" [(ngModel)]="usuario.qtdChildrens" name="qtdChildrens" type="text" class="validate">
+                    <label for="first_name">Qtde Filhos</label>
                 </div>
 
-                {{campoNome}}
-
-                <div class="form-group">
-                    <label for="">Email</label>
-                    <input required type="email" class="form-control" [(ngModel)]="usuario.email" name="email" placeholder="Email">
+                <div class="col s12">
+                    <button class="btn" [disabled]="!formUsuario.valid" type="submit">Salvar</button>
                 </div>
-
-                <button type="submit" [disabled]="!formNovo.form.valid" class="btn btn-primary">Adicionar</button>
             </form>
         </div>
     </div>

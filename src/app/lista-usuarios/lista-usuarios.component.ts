@@ -11,12 +11,26 @@ export class ListaUsuariosComponent implements OnInit {
 
   public usuarios: Array<Usuario>;
   public selectedUsuario: Usuario;
+  public flagSucesso: boolean;
 
   constructor(private service: UsuarioService) { }
 
   ngOnInit() {
+    this.listarUsuarios();
+  }
+
+  public listarUsuarios(){
     this.service.listarusuarios().subscribe(data => {
       this.usuarios = data.users;
+    });
+  }
+
+  excluirUsuario(id){
+    this.service.removerUsuario(id).subscribe( data => {
+      this.flagSucesso = true;
+      this.listarUsuarios();
+    }, error => {
+      this.flagSucesso = false;
     });
   }
 
